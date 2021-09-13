@@ -1,0 +1,63 @@
+body{
+  height: 100%;
+  background-color: var(--original_wilderorg_grey_light);
+}
+main{
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background-color: transparent;
+}
+
+.background{
+  position: absolute;
+  z-index: -1;
+  display: block;
+  width: 120%;
+  opacity: 0.1;
+  filter: blur(7px);
+}
+
+.logo{
+  display: block;
+  width: 150px;
+}
+.title{
+  margin-bottom: 0px;
+}
+.subtitle{
+  max-width: 400px;
+  margin: 5px 0px 10px 0px;
+  font-size: 16px;
+  text-align: center;
+}
+p{
+  max-width: 400px;
+  margin-top: 20px;
+  text-align: center;
+}
+.gitlink{
+  position: relative;
+  margin: 0px 0.6ch 0px 0.6ch;
+  text-decoration: underline;
+}
+.gitlink::after{
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: calc(50% - 5px);
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  opacity: 0;
+  transform: rotate(-45deg);
+  transition: 0.1s ease all;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+.gitlink:hover::after{
+  bottom: -13px;
+  opacity: 0.8;
+}
