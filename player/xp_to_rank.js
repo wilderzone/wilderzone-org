@@ -51,5 +51,15 @@ const ranks = {
   "050": {"name": "Immortal", "xp": 2250682}
 }
 function xpToRank(xp){
-
+  if(xp < 0){xp = 0;}
+  var found = false;
+  Object.keys(ranks).forEach((r, i) => {
+    if(found === false){
+      if(xp >= ranks[r].xp){
+      }else{
+        found = ranks[Object.keys(ranks)[i - 1]];
+      }
+    }
+  });
+  return (found === false ? ranks["050"] : found);
 }
