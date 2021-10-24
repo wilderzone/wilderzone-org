@@ -6,15 +6,29 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://gigabyte5671.github.io/lightshard/css/lightshard.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://gigabyte5671.github.io/lightshard/lib/lightshard.js"></script>
   </head>
+
   <body>
-
     <main>
+      <progress_doughnut>
+        <span></span>
+        <span></span>
+        <span id="doughnut_bar"></span>
+        <div><img src="" draggable="false" id="doughnut_image"><p id="doughnut_text"></p></div>
+      </progress_doughnut>
 
+      <progress_bar>
+        <span></span>
+      </progress_bar>
+
+      <stuff style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+
+      </stuff>
     </main>
-    
   </body>
+
   <script src="../lib/jquery.min.js"></script>
   <script src="get_player_data.js"></script>
   <script src="updateDOM.js"></script>
