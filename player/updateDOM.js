@@ -2,11 +2,22 @@ function updateDOM(){
   var player_rank = XPRank.xpToRank(player_data.rank_xp)["level"];
   var player_rank_xp_bounds = XPRank.rankMinMax(player_rank);
 
-  document.querySelector("main stuff").innerHTML = (
-    Lightshard.blocks.h1(player_data.player_name) +
-    Lightshard.blocks.info("Rank XP: " + player_data.rank_xp) +
-    Lightshard.blocks.info("Rank: " + XPRank.xpToRank(player_data.rank_xp)["name"])
-  );
+  document.getElementById("player_name").innerHTML = player_data.player_name;
+  document.getElementById("player_xp").innerHTML = "Rank XP: " + player_data.rank_xp;
+  document.getElementById("player_rank_title").innerHTML = "Rank: " + XPRank.xpToRank(player_data.rank_xp)["name"];
+
+
+  var item = '';
+  item += '<h2>BASE STATS</h2>';
+  Object.keys(player_data.tbd).forEach((k) => {
+    item +=
+      Lightshard.blocks.div("small_stat", 
+        Lightshard.blocks.paragraph(k + ":") +
+        Lightshard.blocks.paragraph(player_data.tbd[k])
+      );
+  });
+  document.querySelector("other_stuff").innerHTML = item;
+
 
   
   document.querySelector("#doughnut_text").innerHTML = player_rank;
@@ -21,7 +32,7 @@ function updateDOM(){
   window.setTimeout(function(){
     var rank_progress = ((player_data.rank_xp - player_rank_xp_bounds.min) / (player_rank_xp_bounds.max - player_rank_xp_bounds.min)) * 100;
     document.querySelector("progress_bar span").style.width = rank_progress + "%";
-  }, 400);
+  }, 800);
 }
 
 
