@@ -5,4 +5,4 @@
 Base repo for the Tribes Ascend Community Hub's Wilderzone.org restoration project.  
   
   
-This project is a branch of the [Wilderzone Live Project](https://github.com/Gigabyte5671/wilderzone-live)
+This project is part of the [Wilderzone Live Project](https://github.com/Gigabyte5671/wilderzone-live)
