@@ -1,0 +1,35 @@
+label{
+    display: none;
+}
+input, select{
+    width: 300px;
+    padding: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    border: 1px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    border-radius: 5px;
+    outline: unset;
+    transform-origin: 50% 0%;
+    transition: 0.2s ease all;
+}
+input:focus, select:focus{
+    border-bottom: 3px solid #133059;
+}
+textarea{
+    width: 300px;
+    resize: none;
+    padding: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    border: 1px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    border-radius: 5px;
+    outline: unset;
+    transition: 0.2s ease border;
+}
+textarea:focus{
+    border-bottom: 3px solid #133059;
+}
