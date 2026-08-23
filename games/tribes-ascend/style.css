@@ -16,6 +16,7 @@
 	--gap-s: 10px;
 	--gap-m: 15px;
 	--gap-l: 35px;
+	--grid-last-column: 2.5fr;
 	--transition: 0.1s;
 }
 
@@ -29,6 +30,21 @@ html {
 }
 
 body {
+	display: grid;
+	grid-template:
+		'.      .       .         .            .          .' var(--gap-m)
+		'.      .       .         .            .          .' 1fr
+		'.      logo    logo      logo         logo       .' auto
+		'.      .       subtext   subtext      subtext    .' auto
+		'.      .       .         .            .          .' var(--gap-m)
+		'.      .       download  download     download   .' auto
+		'.      .       windows   .            linux      .' auto
+		'.      .       .         .            .          .' 1fr
+		'.      .       .         .            .          .' var(--gap-l)
+		'.      .       footer    footer       footer     .' auto
+		'.      .       .         .            .          .' var(--gap-m)
+		/ 1fr   25px    25ch      var(--gap-s) 25ch       var(--grid-last-column);
+	gap: var(--gap-m) 0;
 	height: 100%;
 	margin: 0;
 	color: var(--color-text);
@@ -41,26 +57,20 @@ body {
 }
 
 main {
+	grid-area: 1 / 2 / 12 / 6;
 	display: grid;
-	grid-template:
-		'.      .       .         .            .          .' 1fr
-		'.      logo    logo      logo         logo       .' auto
-		'.      .       subtext   subtext      subtext    .' auto
-		'.      .       .         .            .          .' var(--gap-m)
-		'.      .       download  download     download   .' auto
-		'.      .       windows   .            linux      .' auto
-		'.      .       .         .            .          .' 1fr
-		/ 1fr   25px    25ch      var(--gap-s) 25ch       2fr;
+	grid-template-columns: subgrid;
+	grid-template-rows: subgrid;
 	gap: var(--gap-m) 0;
 	height: 100%;
 	margin: auto;
-	padding: var(--gap-l) 0;
 
 	.card {
-		grid-area: 2 / 2 / 7 / 6;
-		margin: calc(var(--gap-l) * -1);
-		margin-left: calc((var(--gap-l) - 20px) * -1);
-		border-radius: 12px;
+		position: absolute;
+		inset: 0 calc(var(--gap-l) * -1) 0 calc((var(--gap-l) - 20px) * -1);
+		border: 1px solid rgb(from var(--color-gold) r g b / 0.1);
+		border-top: unset;
+		border-bottom: unset;
 		backdrop-filter: blur(8px);
 		pointer-events: none;
 	}
@@ -118,13 +128,15 @@ main {
 		text-decoration: none;
 		text-shadow: 0 0 4px rgba(0, 0, 0, .5);
 		text-transform: uppercase;
+		background-color: rgb(from var(--color-red) r g b / 0.02);
 		border: 2px solid var(--color-red);
 		border-radius: var(--border-radius);
 		transition: var(--transition) ease all;
 
 		&:is(:focus-visible, :hover) {
-			text-shadow: 0 0 8px #fffa;
-			box-shadow: 0 0 8px var(--color-red), 0 0 8px var(--color-red) inset;
+			background-color: rgb(from var(--color-red) r g b / 0.05);
+			text-shadow: 0 0 20px #fffa;
+			box-shadow: 0 0 8px var(--color-red), 0 0 6px var(--color-red) inset;
 		}
 	}
 
@@ -159,5 +171,35 @@ main {
 
 	& .linux {
 		grid-area: linux;
+	}
+}
+
+footer {
+	grid-area: footer;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: var(--gap-s) var(--gap-m);
+	width: 100%;
+	font-size: 0.8rem;
+	text-align: center;
+
+	& a {
+		color: var(--color-link);
+		text-decoration: none;
+		filter: grayscale(1);
+		opacity: 0.8;
+		transition: var(--transition) ease all;
+
+		&:is(:focus-visible, :hover) {
+			filter: grayscale(0);
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	:root {
+		--grid-last-column: 1fr;
 	}
 }
