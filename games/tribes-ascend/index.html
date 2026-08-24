@@ -3,15 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Download Tribes: Ascend</title>
+	<meta property="og:locale" content="en_US">
 	<meta property="og:title" content="Download Tribes: Ascend">
 	<meta property="og:site_name" content="Wilderzone Org">
-	<meta name="description" content="Download Tribes: Ascend for Windows and Linux.">
-	<meta property="og:description" content="Download Tribes: Ascend for Windows and Linux.">
-	<meta name="keywords" content="Wilderzone, Tribes Ascend, TA, Tribes, Ascend, FPS, FPS-Z, fast-paced, video game, game, download, install">
+	<meta name="description" content="The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.">
+	<meta property="og:description" content="The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.">
+	<meta name="keywords" content="Wilderzone, Tribes Ascend, TA, Tribes, Ascend, FPS, FPS-Z, fast-paced, video game, game, download, install, servers, server hosting, free-to-play, free">
 	<meta name="author" content="Wilderzone Org">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="https://wilderzone.org/games/tribes-ascend/site-cover.webp">
 	<meta property="og:url" content="https://wilderzone.org/games/tribes-ascend/">
+	<link rel="canonical" href="https://wilderzone.org/games/tribes-ascend/">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:image:alt" content="site cover image">
 	<meta name="theme-color" content="#41637C">
@@ -20,6 +22,13 @@
 	<link rel="shortcut icon" href="./favicon.webp" type="image/x-icon">
 </head>
 <body>
+	<nav>
+		<a href="https://wilderzone.org/games/" class="back">
+			<img src="./back.svg" alt="" class="icon">
+			Back to all games
+		</a>
+	</nav>
+
 	<main>
 		<div class="card"></div>
 
@@ -40,31 +49,51 @@
 			target="_blank"
 			class="download"
 		>Download</a>
-		<a
-			href="https://cdn.wilderzone.live/ta/installer/tai-gui.exe"
-			download="tribes-ascend-installer"
-			target="_blank"
-			class="windows"
-			title="Download for Windows"
-		>
-			<img src="./windows.svg" alt="" class="icon">
-			Windows
-		</a>
-		<a
-			href="https://cdn.wilderzone.live/ta/installer/tai-gui.deb"
-			download="tribes-ascend-installer"
-			target="_blank"
-			class="linux"
-			title="Download for Linux"
-		>
-			<img src="./linux.svg" alt="" class="icon">
-			Linux
-		</a>
+
+		<ul class="alternatives" aria-label="Alternative downloads">
+			<li aria-labelledby="windows" title="Download for Windows">
+				<a
+					id="windows"
+					href="https://cdn.wilderzone.live/ta/installer/tai-gui.exe"
+					download="tribes-ascend-installer"
+					target="_blank"
+					class="alternative"
+				>
+					<img src="./windows.svg" alt="" class="icon">
+					Windows
+				</a>
+			</li>
+			<li aria-labelledby="linux" title="Download for Linux">
+				<a
+					id="linux"
+					href="https://cdn.wilderzone.live/ta/installer/tai-gui.deb"
+					download="tribes-ascend-installer"
+					target="_blank"
+					class="alternative"
+				>
+					<img src="./linux.svg" alt="" class="icon">
+					Linux
+				</a>
+			</li>
+			<li aria-labelledby="server" title="Host a server">
+				<a
+					id="server"
+					href="https://llamagrab.net"
+					target="_blank"
+					class="alternative"
+				>
+					<img src="./server.svg" alt="" class="icon">
+					Server
+				</a>
+			</li>
+		</ul>
 	</main>
 
 	<footer>
 		<a href="https://www.hirezstudios.com/" target="_blank" rel="noreferrer">Images & Game &copy; Hi-Rez Studios 2016</a>
 		<a href="https://wilderzone.org/" target="_blank" rel="noreferrer">Website & Installer &copy; Wilderzone 2026</a>
+		<a href="https://discord.com/invite/dd8JgzJ" target="_blank" rel="noreferrer">Support</a>
+		<a href="https://github.com/wilderzone/ta-installer" target="_blank" rel="noreferrer">Installer source code, contributors, & documentation</a>
 	</footer>
 </body>
 </html>
