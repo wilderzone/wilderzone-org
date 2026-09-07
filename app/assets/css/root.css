@@ -27,7 +27,8 @@ html {
 body {
 	height: 100%;
 	margin: 0;
-	font: 300 12px/18px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
 	background: var(--color-background) url('~/assets/images/noise.png') repeat center top;
 }
 

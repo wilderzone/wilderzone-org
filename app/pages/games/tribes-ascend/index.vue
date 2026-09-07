@@ -1,32 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Download Tribes: Ascend</title>
-	<meta property="og:locale" content="en_US">
-	<meta property="og:title" content="Download Tribes: Ascend">
-	<meta property="og:site_name" content="Wilderzone.org">
-	<meta name="description" content="The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.">
-	<meta property="og:description" content="The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.">
-	<meta name="keywords" content="Wilderzone, Tribes Ascend, TA, Tribes, Ascend, FPS, FPS-Z, fast-paced, video game, game, download, install, servers, server hosting, free-to-play, free">
-	<meta name="author" content="Wilderzone Org">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="https://wilderzone.org/games/tribes-ascend/site-cover.webp">
-	<meta property="og:url" content="https://wilderzone.org/games/tribes-ascend/">
-	<link rel="canonical" href="https://wilderzone.org/games/tribes-ascend/">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:image:alt" content="site cover image">
-	<meta name="theme-color" content="#41637C">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./style.css">
-	<link rel="shortcut icon" href="./favicon.webp" type="image/x-icon">
-</head>
-<body>
+<script setup lang="ts">
+import './style.css';
+import favicon from './favicon.webp';
+
+const seo = {
+	title: 'Download Tribes: Ascend',
+	description: `The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.`,
+	keywords: [
+		'Wilderzone', 'Tribes Ascend', 'TA', 'Tribes', 'Ascend', 'FPS', 'FPS-Z',
+		'fast-paced', 'video game', 'game', 'download', 'install', 'servers',
+		'server hosting', 'free-to-play', 'free'
+	],
+};
+
+useHead({
+	meta: [
+		{ name: 'keywords', content: seo.keywords.join(', ') },
+	],
+	link: [
+		{ rel: 'shortcut icon', href: favicon, type: 'image/webp' },
+		{ rel: 'canonical', href: 'https://wilderzone.org/games/tribes-ascend/' },
+	]
+});
+
+useSeoMeta({
+	title: seo.title,
+	ogTitle: seo.title,
+	ogLocale: 'en_US',
+	author: 'Wilderzone.org',
+	ogSiteName: 'Wilderzone.org',
+	description: seo.description,
+	ogDescription: seo.description,
+	ogType: 'website',
+	ogImage: 'https://wilderzone.org/games/tribes-ascend/site-cover.webp',
+	ogUrl: 'https://wilderzone.org/games/tribes-ascend/',
+	twitterCard: 'summary_large_image',
+	twitterImageAlt: 'site cover image',
+	themeColor: '#41637C',
+});
+</script>
+
+<template>
 	<nav>
-		<a href="https://wilderzone.org/games/" class="back">
+		<NuxtLink to="/games" class="back">
 			<img src="./back.svg" alt="" class="icon">
 			Back to all games
-		</a>
+		</NuxtLink>
 	</nav>
 
 	<main>
@@ -91,11 +109,10 @@
 
 	<footer>
 		<a href="https://www.hirezstudios.com/" target="_blank" rel="noreferrer">Game & Images &copy; Hi-Rez Studios 2016</a>
-		<a href="https://wilderzone.org/" target="_blank" rel="noreferrer">Website & Installer &copy; Wilderzone 2026</a>
+		<NuxtLink to="/" target="_blank" rel="noreferrer">Website & Installer &copy; Wilderzone 2026</NuxtLink>
 		<a href="https://discord.com/invite/dd8JgzJ" target="_blank" rel="noreferrer">Ask a question</a>
 		<a href="https://feedback.wilderzone.org/" target="_blank" rel="noreferrer">Give feedback</a>
 		<a href="https://ko-fi.com/wilderzone" target="_blank" rel="noreferrer">Donate</a>
 		<a href="https://github.com/wilderzone/ta-installer" target="_blank" rel="noreferrer">Installer source code, contributors, & documentation</a>
 	</footer>
-</body>
-</html>
+</template>

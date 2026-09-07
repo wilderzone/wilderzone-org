@@ -21,16 +21,7 @@
 	--transition: 0.1s;
 }
 
-* {
-	position: relative;
-	box-sizing: border-box;
-}
-
-html {
-	height: 100%;
-}
-
-body {
+#__nuxt {
 	display: grid;
 	grid-template:
 		'.            .               .' var(--gap-m)
