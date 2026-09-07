@@ -8,6 +8,7 @@
 	--gap-m: 16px;
 	--gap-l: 24px;
 	--transition-s: 0.1s;
+	--transition-xl: 1.5s;
 	--z-index-top: 100;
 	--z-index-mid: 50;
 }
