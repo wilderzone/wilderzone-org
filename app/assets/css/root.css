@@ -1,8 +1,12 @@
+@import url('./fonts.css');
+
 :root {
 	--border-radius-s: 4px;
 	--color-text: #5e5953;
 	--color-background: #f0edea;
 	--content-width: 60rem;
+	--font-size-s: 0.75rem;
+	--font-size-m: 1rem;
 	--gap-xs: 4px;
 	--gap-s: 8px;
 	--gap-m: 16px;

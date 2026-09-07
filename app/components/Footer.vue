@@ -50,6 +50,7 @@ footer {
 		/ 1fr     var(--chamfer) minmax(auto, var(--content-width)) var(--chamfer) 1fr;
 	flex-shrink: 0;
 	min-height: 100px;
+	font-size: var(--font-size-s);
 	filter: drop-shadow(0 2px 10px #0006);
 }
 

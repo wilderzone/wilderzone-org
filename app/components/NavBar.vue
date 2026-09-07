@@ -33,6 +33,7 @@ nav {
 		'logo     angle          .    ' var(--chamfer)
 		/ auto    var(--chamfer) 1fr;
 	flex-shrink: 0;
+	font-size: var(--font-size-s);
 	filter: drop-shadow(0 -2px 10px #0006);
 }
 
