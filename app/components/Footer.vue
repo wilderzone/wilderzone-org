@@ -40,7 +40,7 @@
 
 <style scoped>
 footer {
-	--background: #2c2928 url('~/assets/images/noise.png') repeat top center;
+	--background: var(--color-grey) url('~/assets/images/noise.png') repeat top center;
 	--chamfer: var(--gap-l);
 	z-index: var(--z-index-top);
 	display: grid;

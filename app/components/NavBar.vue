@@ -20,7 +20,7 @@
 
 <style scoped>
 nav {
-	--background: #2c2928 url('~/assets/images/noise.png') repeat top center;
+	--background: var(--color-grey) url('~/assets/images/noise.png') repeat top center;
 	--chamfer: var(--gap-l);
 	position: sticky;
 	top: 0;
@@ -104,6 +104,6 @@ ul {
 	place-self: start;
 	width: 100%;
 	height: 3px;
-	background: #d94000;
+	background: var(--color-orange);
 }
 </style>
