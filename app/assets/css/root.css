@@ -39,10 +39,11 @@ body {
 #__nuxt {
 	display: flex;
 	flex-flow: column nowrap;
-	height: 100%;
+	min-height: 100%;
 }
 
 main {
+	flex: 1;
 	height: 100%;
 	margin-bottom: calc(var(--gap-l) * -1);
 	padding-bottom: var(--gap-l);
