@@ -2,13 +2,21 @@
 
 :root {
 	--border-radius-s: 4px;
-	--color-text: #5e5953;
+	--border-radius-m: 8px;
 	--color-background: #f0edea;
+	--color-border: #d7d2c9;
+	--color-card: #e5e2dc;
+	--color-card-metal: #e1e0dd;
 	--color-grey: #2c2928;
 	--color-orange: #d94000;
+	--color-orange-faint: #d9400020;
+	--color-text: #5e5953;
+	--color-text-dim: #6f6963;
 	--content-width: 60rem;
+	--font-size-xs: 0.5rem;
 	--font-size-s: 0.75rem;
 	--font-size-m: 1rem;
+	--font-size-l: 1.5rem;
 	--gap-xs: 4px;
 	--gap-s: 8px;
 	--gap-m: 16px;

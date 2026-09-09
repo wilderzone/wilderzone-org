@@ -13,5 +13,9 @@ export default defineNuxtConfig({
 	},
 
 	css: ["~/assets/css/root.css"],
-	modules: ["nitro-cloudflare-dev"]
+	modules: ["nitro-cloudflare-dev", "@nuxt/icon"],
+	components: [
+		'~/components',
+		{ path: '~/pages', pattern: '**/components/**', pathPrefix: true }
+	]
 });
