@@ -16,7 +16,8 @@ defineProps<{
 					class="history-item"
 					:aria-label="item.command"
 				>
-					<span class="tag" aria-hidden="true">{{ item.command }}</span><span>{{ item.phrase || item.name }}</span>
+					<span class="tag" aria-hidden="true">{{ item.command }}</span>
+					<span>{{ item.phrase || item.name }}</span>
 				</li>
 			</ol>
 		</output>
@@ -35,13 +36,13 @@ section.history {
 		background: var(--color-background);
 		border: 1px solid var(--color-border);
 		border-radius: var(--border-radius-s);
-		overflow-y: auto;
+		overflow: hidden auto;
 		scrollbar-color: #8b8b8b transparent;
 	}
 
 	& ol {
 		display: flex;
-		flex-flow: column nowrap;
+		flex-flow: column-reverse nowrap;
 		gap: var(--gap-xs);
 		margin: 0;
 		padding: var(--gap-m);
@@ -52,6 +53,12 @@ section.history {
 		display: flex;
 		align-items: center;
 		gap: var(--gap-s);
+		animation: history-item-enter var(--transition-m) ease forwards;
 	}
+}
+
+@keyframes history-item-enter {
+	0%   { opacity: 0; transform: translateX(20px); }
+	100% { opacity: 1; transform: translateX(0);    }
 }
 </style>

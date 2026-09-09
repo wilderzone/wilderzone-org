@@ -42,7 +42,7 @@ function onSelect(key: string): void {
 
 function onMatch(match: VGSMatch): void {
 	if (!match.file) return;
-	history.value.unshift(match);
+	history.value.push(match);
 	timer.value?.disable();
 	stop();
 	void play(pack.value, match.file);
