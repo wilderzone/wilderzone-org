@@ -7,24 +7,20 @@ interface QuickStatus {
 		unknown: number;
 		up: number;
 	};
-	status: 'up' | 'partial' | 'down';
+	status: (typeof valid)[number];
 }
 
-const status = ref<'up' | 'partial' | 'down' | 'unknown'>('unknown');
+const status = ref<QuickStatus['status'] | 'unknown'>('unknown');
+const valid = ['up', 'partial', 'down'] as const;
 
 async function load(): Promise<void> {
 	try {
 		const response = await fetch('https://status.wilderzone.org/quick');
 		const data = await response.json<QuickStatus>();
-		switch (data?.status) {
-			case 'up':
-			case 'partial':
-			case 'down':
-				status.value = data.status;
-				break;
-			default:
-				status.value = 'down';
-				break;
+		if (valid.includes(data.status)) {
+			status.value = data.status;
+		} else {
+			status.value = 'down';
 		}
 	} catch {
 		status.value = 'down';
