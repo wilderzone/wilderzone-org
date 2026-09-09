@@ -113,8 +113,9 @@ footer {
 		}
 
 		& a {
-			display: grid;
-			place-items: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			padding: var(--gap-s) var(--gap-m);
 			color: #ffffffb2;
 			font-weight: 400;

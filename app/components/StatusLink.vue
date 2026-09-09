@@ -49,7 +49,7 @@ onMounted(() => void load());
 <style scoped>
 .status-link {
 	display: flex;
-	flex-flow: row nowrap;
+	justify-content: center;
 	align-items: center;
 	gap: var(--gap-s);
 }
