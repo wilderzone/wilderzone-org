@@ -17,7 +17,7 @@ const shared = computed(() => {
 	}
 });
 const sounds: HTMLAudioElement[] = [];
-const timeout = 3_000;
+const timeout = 4_000;
 const timer = ref();
 const vgs = new VGS({ timeout, trigger: ['V', 'A'], options: vgsOptions });
 
