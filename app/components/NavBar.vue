@@ -12,6 +12,9 @@
 		</NuxtLink>
 		<ul>
 			<li>
+				<NuxtLink to="/wiki">Wiki</NuxtLink>
+			</li>
+			<li>
 				<a href="https://llamagrab.net" target="_blank" rel="noreferrer">Servers</a>
 			</li>
 		</ul>

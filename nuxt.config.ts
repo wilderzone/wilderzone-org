@@ -12,8 +12,15 @@ export default defineNuxtConfig({
 		}
 	},
 
+	content: {
+		database: {
+			type: 'd1',
+			bindingName: 'WIKI_DB'
+		}
+	},
+
 	css: ["~/assets/css/root.css"],
-	modules: ["nitro-cloudflare-dev", "@nuxt/icon"],
+	modules: ["@nuxt/icon", "@nuxt/content"],
 	components: [
 		'~/components',
 		{ path: '~/pages', pattern: '**/components/**', pathPrefix: true }

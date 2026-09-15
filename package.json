@@ -12,8 +12,10 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
+		"@nuxt/content": "^3.16.0",
 		"@nuxt/icon": "^2.5.1",
 		"@wilderzone/vgs": "^1.1.1",
+		"better-sqlite3": "^13.0.3",
 		"nuxt": "^4.5.2",
 		"vue": "^3.5.42",
 		"vue-router": "^5.3.0"

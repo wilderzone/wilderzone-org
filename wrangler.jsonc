@@ -12,7 +12,19 @@
 	},
 	"upload_source_maps": true,
 	"workers_dev": false,
-	"preview_urls": false
+	"preview_urls": false,
+
+	// D1 database binding. Accessible in the Worker as `env.DB`.
+	// Create the DB with:  npx wrangler d1 create <database-name>
+	// then paste the returned `database_id` below.
+	"d1_databases": [
+		{
+			"binding": "WIKI_DB",
+			"database_name": "wilderzone-org-wiki",
+			"database_id": "792b544f-6471-4c01-b03e-e222996b25ce"
+		}
+	]
+
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
