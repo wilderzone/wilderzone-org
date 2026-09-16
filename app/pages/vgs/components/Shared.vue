@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { VGSOption } from '@wilderzone/vgs';
 
+const playSound = inject<(pack: string, file: string) => Promise<void>>('play');
+
 const props = defineProps<{
 	cdn: string;
 	command: string;
@@ -12,8 +14,17 @@ const emit = defineEmits<{
 	play: [string, string];
 }>();
 
+const loading = ref(false);
+
 function link(file: string): string {
 	return `${props.cdn}/${props.pack}/${file}.ogg`;
+}
+
+async function play(): Promise<void> {
+	if (!playSound || !props.line.file) return;
+	loading.value = true;
+	await playSound(props.pack, props.line.file)
+	loading.value = false;
 }
 </script>
 
@@ -28,7 +39,8 @@ function link(file: string): string {
 			icon="material-symbols:play-arrow"
 			class="play-button"
 			title="Play"
-			@click="props.line.file && emit('play', props.pack, props.line.file)"
+			:loading
+			@click="play()"
 		/>
 		<NuxtLink
 			to="/vgs"

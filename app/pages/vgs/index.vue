@@ -2,6 +2,8 @@
 import { VGS, type VGSMatch } from '@wilderzone/vgs';
 import { vgsOptions, vgsPacks } from '~/data/vgs';
 
+provide('play', play);
+
 const cdn = 'https://cdn.wilderzone.org/ta/voicepacks';
 const defaultPack = vgsPacks.find(pack => pack.default)?.pack || '';
 const history = ref<VGSMatch[]>([]);
@@ -65,11 +67,15 @@ function link(pack: string, file: string): string {
 	return `${cdn}/${pack}/${file}.ogg`;
 }
 
-function play(pack: string, file: string): void {
-	const audio = document.createElement('audio');
-	audio.src = link(pack, file);
-	sounds.push(audio);
-	void audio.play();
+async function play(pack: string, file: string): Promise<void> {
+	return new Promise(resolve => {
+		const audio = document.createElement('audio');
+		audio.src = link(pack, file);
+		sounds.push(audio);
+		audio.addEventListener('ended', () => resolve());
+		audio.addEventListener('error', () => resolve());
+		void audio.play();
+	});
 }
 
 function stop(): void {

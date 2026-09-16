@@ -11,14 +11,6 @@ const emit = defineEmits<{
 }>();
 
 const lines = Object.entries(vgsOptions);
-
-function link(file: string): string {
-	return `${props.cdn}/${props.pack}/${file}.ogg`;
-}
-
-function share(command: string): string {
-	return `https://wilderzone.org/VGS?pack=${props.pack}&line=${command}`;
-}
 </script>
 
 <template>
@@ -45,33 +37,13 @@ function share(command: string): string {
 					<span class="tag" aria-hidden="true">{{ command }}</span>
 					<span>{{ option.phrase || option.name }}</span>
 				</li>
-				<li
+				<VgsComponentsFile
 					v-if="option.type === 'line'"
-					class="file"
-					:aria-label="command"
-				>
-					<IconButton
-						icon="material-symbols:play-arrow-rounded"
-						title="Play"
-						@click="option.file && emit('play', option.file)"
-					/>
-					<span class="tag" aria-hidden="true">{{ command }}</span>
-					<span>{{ option.phrase || option.name }}</span>
-					<ShareButton
-						:content="share(command)"
-						icon="ic:round-share"
-						class="share"
-						title="Share"
-					/>
-					<IconLink
-						v-if="option.file"
-						:href="link(option.file)"
-						icon="ic:round-download"
-						title="Download"
-						external
-						download
-					/>
-				</li>
+					:cdn
+					:command
+					:option
+					:pack
+				/>
 			</template>
 		</ul>
 	</section>
@@ -107,19 +79,6 @@ section.files {
 		gap: var(--gap-m);
 		padding: var(--gap-s);
 		background: var(--color-background);
-	}
-
-	& .file {
-		display: flex;
-		align-items: center;
-		gap: var(--gap-m);
-		padding: var(--gap-s);
-		background: var(--color-card-metal);
-		border-radius: var(--border-radius-s);
-
-		& .share {
-			margin-inline-start: auto;
-		}
 	}
 }
 </style>
