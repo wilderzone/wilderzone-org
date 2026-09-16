@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useSeoMeta({
+	title: 'Wiki | Wilderzone.org'
+});
+
 const route = useRoute();
 const { data: page } = await useAsyncData(route.path, () => {
 	return queryCollection('content').path(route.path).first()

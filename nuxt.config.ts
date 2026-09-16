@@ -24,5 +24,11 @@ export default defineNuxtConfig({
 	components: [
 		'~/components',
 		{ path: '~/pages', pattern: '**/components/**', pathPrefix: true }
-	]
+	],
+
+	app: {
+		head: {
+			title: "Wilderzone.org"
+		}
+	}
 });

@@ -2,6 +2,10 @@
 import { VGS, type VGSMatch } from '@wilderzone/vgs';
 import { vgsOptions, vgsPacks } from '~/data/vgs';
 
+useSeoMeta({
+	title: 'VGS | Wilderzone.org'
+});
+
 provide('play', play);
 
 const cdn = 'https://cdn.wilderzone.org/ta/voicepacks';
