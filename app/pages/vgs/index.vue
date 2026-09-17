@@ -28,7 +28,7 @@ const timer = ref();
 const vgs = new VGS({ timeout, trigger: ['V', 'A'], options: vgsOptions });
 
 function ignoreEvent(event: KeyboardEvent): boolean {
-	return !/(?:^[a-z]$|^escape$)/i.test(event.key);
+	return !/(?:^[a-z0-9]$|^escape$)/i.test(event.key);
 }
 
 function onKeydown(event: KeyboardEvent): void {
@@ -165,8 +165,8 @@ onMounted(() => {
 	display: grid;
 	grid-template:
 		'heading   heading' var(--heading-height)
-		'palette   history' 30em
-		'files     files  ' 30em
+		'palette   history' 33em
+		'files     files  ' 33em
 		/ 3fr      2fr;
 	place-items: center;
 	gap: var(--gap-m);
