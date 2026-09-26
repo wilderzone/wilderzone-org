@@ -2,13 +2,16 @@
 import type { VGSMatch } from '@wilderzone/vgs';
 import { vgsPacks } from '~/data/vgs';
 
-defineProps<{
+const props = defineProps<{
+	cdn: string;
 	options: VGSMatch[];
 	pressed: string;
 	timeout: number;
 }>();
 
 const pack = defineModel<string>({ required: true });
+const packName = computed(() => vgsPacks.find(p => p.pack === pack.value)?.name);
+const link = computed(() => packName.value && `${props.cdn}/${packName.value.replaceAll(' ', '_')}.zip`);
 
 const emit = defineEmits<{
 	select: [string];
@@ -19,13 +22,26 @@ const emit = defineEmits<{
 	<section class="palette" aria-labelledby="palette-heading">
 		<label for="voice-pack">
 			<h3 id="palette-heading">Pack</h3>
-			<select name="voice-pack" id="voice-pack" v-model="pack">
+			<select
+				name="voice-pack"
+				id="voice-pack"
+				aria-label="Select voice pack"
+				v-model="pack"
+			>
 				<option
 					v-for="pack of vgsPacks"
 					:key="pack.pack"
 					:value="pack.pack"
 				>{{ pack.name }}</option>
 			</select>
+			<IconLink
+				v-if="link"
+				:href="link"
+				icon="ic:round-download"
+				title="Download voice pack"
+				external
+				download
+			/>
 		</label>
 		<ul class="input" aria-label="Commands">
 			<li

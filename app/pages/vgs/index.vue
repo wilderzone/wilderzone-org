@@ -133,6 +133,7 @@ onMounted(() => {
 			<template v-else>
 				<VgsComponentsPalette
 					v-grid:palette
+					:cdn
 					:options
 					:pressed
 					:timeout
