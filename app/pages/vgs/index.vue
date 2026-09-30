@@ -1,9 +1,38 @@
 <script setup lang="ts">
 import { VGS, type VGSMatch } from '@wilderzone/vgs';
 import { vgsOptions, vgsPacks } from '~/data/vgs';
+import SharePreview from './assets/share-preview.webp';
+
+const seo = {
+	title: 'VGS | Wilderzone.org',
+	description: `Tribes: Ascend VGS soundboard.`,
+	keywords: [
+		'Wilderzone', 'Tribes Ascend', 'TA', 'Tribes', 'Ascend', 'FPS', 'FPS-Z',
+		'fast-paced', 'video game', 'vgs', 'shazbot', 'soundboard', 'voice-lines',
+		...vgsPacks.map(pack => pack.name)
+	],
+};
+
+useHead({
+	meta: [
+		{ name: 'keywords', content: seo.keywords.join(', ') },
+	]
+});
 
 useSeoMeta({
-	title: 'VGS | Wilderzone.org'
+	title: seo.title,
+	ogTitle: seo.title,
+	ogLocale: 'en_US',
+	author: 'Wilderzone.org',
+	ogSiteName: 'Wilderzone.org',
+	description: seo.description,
+	ogDescription: seo.description,
+	ogType: 'website',
+	ogImage: SharePreview,
+	ogUrl: 'https://wilderzone.org/vgs',
+	twitterCard: 'summary_large_image',
+	twitterImageAlt: 'site cover image',
+	themeColor: '#f0edea',
 });
 
 provide('play', play);
