@@ -17,6 +17,9 @@
 			<li>
 				<a href="https://llamagrab.net" target="_blank" rel="noreferrer">Servers</a>
 			</li>
+			<li>
+				<NuxtLink to="/transparency">About</NuxtLink>
+			</li>
 		</ul>
 	</nav>
 </template>
