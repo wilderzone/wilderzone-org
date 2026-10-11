@@ -77,6 +77,19 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 				</ul>
 			</section>
 
+			<section aria-labelledby="status">
+				<div class="heading-row">
+					<h2 id="status">Service Status</h2>
+					<IconLink href="https://status.wilderzone.org/" icon="pajamas:status-health" external>Details</IconLink>
+				</div>
+				<iframe
+					class="status-summary"
+					src="https://status.wilderzone.org/summary"
+					frameborder="0"
+					title="Status summary for all Wilderzone services."
+				></iframe>
+			</section>
+
 			<section aria-labelledby="expenses">
 				<div class="heading-row">
 					<h2 id="expenses">Expenses (NZD)</h2>
@@ -196,6 +209,12 @@ section {
 		grid-area: handle;
 		font-size: var(--font-size-s);
 	}
+}
+
+.status-summary {
+	width: 100%;
+	height: 110px;
+	border-radius: var(--border-radius-s);
 }
 
 .chart-area {
