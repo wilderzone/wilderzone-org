@@ -1,6 +1,7 @@
 @import url('./fonts.css');
 
 :root {
+	--background-noise: url('~/assets/images/noise.png') 0 0 / 150px 150px repeat;
 	--border-radius-s: 4px;
 	--border-radius-m: 8px;
 	--color-background: #f0edea;
@@ -48,7 +49,7 @@ body {
 	margin: 0;
 	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
-	background: var(--color-background) url('~/assets/images/noise.png') repeat center top;
+	background: var(--background-noise) var(--color-background);
 }
 
 #__nuxt {
