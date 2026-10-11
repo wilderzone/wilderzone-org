@@ -80,7 +80,7 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 			<section aria-labelledby="expenses">
 				<div class="heading-row">
 					<h2 id="expenses">Expenses (NZD)</h2>
-					<select v-model="selectedYear">
+					<select name="year" v-model="selectedYear">
 						<option v-for="year of years" :value="year">{{ year }}</option>
 					</select>
 				</div>
@@ -200,6 +200,12 @@ section {
 
 .chart-area {
 	min-height: calc(v-bind(chartHeight) * 1px);
+}
+
+select[name="year"] {
+	padding: var(--gap-xs) var(--gap-s);
+	border-color: var(--color-border);
+	border-radius: var(--border-radius-s);
 }
 
 .ledger {
