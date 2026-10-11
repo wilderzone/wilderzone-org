@@ -10,6 +10,7 @@ defineProps<{
 	<button class="icon-button" :disabled="disabled || loading">
 		<Icon v-if="loading" name="mingcute:loading-fill" class="loading-icon" />
 		<Icon v-else :name="icon" />
+		<span class="content"><slot></slot></span>
 	</button>
 </template>
 
@@ -17,9 +18,11 @@ defineProps<{
 .icon-button {
 	all: unset;
 	box-sizing: border-box;
-	display: grid;
-	place-items: center;
-	padding: var(--gap-xs);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--gap-xs);
+	padding: var(--gap-xs) var(--gap-s);
 	font-size: var(--font-size-l);
 	border-radius: var(--border-radius-s);
 	transition: var(--transition-s) ease background-color;
@@ -35,6 +38,14 @@ defineProps<{
 
 	& .loading-icon {
 		animation: loading-icon 0.8s linear infinite;
+	}
+
+	& .content {
+		font-size: var(--font-size-m);
+
+		&:empty {
+			display: none;
+		}
 	}
 }
 

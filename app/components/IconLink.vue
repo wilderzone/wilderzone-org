@@ -20,6 +20,7 @@ const target = computed(() => props.external ? '_blank' : '_self');
 		class="icon-link"
 	>
 		<Icon :name="icon" />
+		<span class="content"><slot></slot></span>
 	</a>
 </template>
 
@@ -27,15 +28,26 @@ const target = computed(() => props.external ? '_blank' : '_self');
 .icon-link {
 	all: unset;
 	box-sizing: border-box;
-	display: grid;
-	place-items: center;
-	padding: var(--gap-xs);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--gap-xs);
+	padding: var(--gap-xs) var(--gap-s);
 	font-size: var(--font-size-l);
 	border-radius: var(--border-radius-s);
+	transition: var(--transition-s) ease background-color;
 	cursor: pointer;
 
 	&:is(:focus-visible, :hover) {
 		background: var(--color-orange-faint);
+	}
+
+	& .content {
+		font-size: var(--font-size-m);
+
+		&:empty {
+			display: none;
+		}
 	}
 }
 </style>
