@@ -29,6 +29,7 @@
 nav {
 	--background: var(--color-grey) url('~/assets/images/noise.png') repeat top center;
 	--chamfer: var(--gap-l);
+	--overshoot: 1px;
 	position: sticky;
 	top: 0;
 	right: 0;
@@ -36,7 +37,7 @@ nav {
 	z-index: var(--z-index-top);
 	display: grid;
 	grid-template:
-		'logo     angle          links' minmax(40px, auto)
+		'logo     links          links' minmax(40px, auto)
 		'logo     angle          .    ' var(--chamfer)
 		/ auto    var(--chamfer) 1fr;
 	flex-shrink: 0;
@@ -106,10 +107,9 @@ ul {
 	grid-area: angle;
 	background: var(--background);
 	clip-path: polygon(
-		0    0,
-		100% 0,
-		100% calc(100% - var(--chamfer)),
-		0    100%
+		calc(0% - var(--overshoot)) calc(0% - var(--overshoot)),
+		calc(100% + var(--overshoot)) calc(0% - var(--overshoot)),
+		calc(0% - var(--overshoot)) calc(100% + var(--overshoot))
 	);
 }
 

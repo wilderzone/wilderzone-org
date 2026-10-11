@@ -42,11 +42,12 @@
 footer {
 	--background: var(--color-grey) url('~/assets/images/noise.png') repeat top center;
 	--chamfer: var(--gap-l);
+	--overshoot: 1px;
 	z-index: var(--z-index-top);
 	display: grid;
 	grid-template:
 		'.        angle-l        links       angle-r        .    ' var(--chamfer)
-		'left     angle-l        links       angle-r        right' 1fr
+		'left     left           links       right          right' 1fr
 		/ 1fr     var(--chamfer) minmax(auto, var(--content-width)) var(--chamfer) 1fr;
 	flex-shrink: 0;
 	min-height: 100px;
@@ -68,10 +69,9 @@ footer {
 	grid-area: angle-l;
 	background: var(--background);
 	clip-path: polygon(
-		0    var(--chamfer),
-		100% 0,
-		100% 100%,
-		0    100%
+		calc(0% - var(--overshoot))   calc(100% + var(--overshoot)),
+		calc(100% + var(--overshoot)) calc(0% - var(--overshoot)),
+		calc(100% + var(--overshoot)) calc(100% + var(--overshoot))
 	);
 }
 
@@ -79,10 +79,9 @@ footer {
 	grid-area: angle-r;
 	background: var(--background);
 	clip-path: polygon(
-		0    0,
-		100% var(--chamfer),
-		100% 100%,
-		0    100%
+		calc(0% - var(--overshoot)) calc(0% - var(--overshoot)),
+		calc(100% + var(--overshoot)) calc(100% + var(--overshoot)),
+		calc(0% - var(--overshoot)) calc(100% + var(--overshoot))
 	);
 }
 
