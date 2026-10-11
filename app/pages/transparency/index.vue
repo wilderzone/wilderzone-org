@@ -4,6 +4,7 @@ import { donations, expenses, ledger, months } from '~/data/expenses';
 const years = ref(expenses.map(entry => String(entry.year)));
 const selectedYear = ref(years.value[0]);
 const index = computed(() => expenses.findIndex(group => String(group.year) === selectedYear.value));
+const chartHeight = ref(350);
 
 const chartOptions = computed(() => ({
 	chart: {
@@ -83,14 +84,16 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 						<option v-for="year of years" :value="year">{{ year }}</option>
 					</select>
 				</div>
-				<ClientOnly fallback-placeholder="Loading chart...">
-					<apexchart
-						type="bar"
-						height="350"
-						:options="chartOptions"
-						:series="expensesSeries"
-					/>
-				</ClientOnly>
+				<div class="chart-area">
+					<ClientOnly fallback-placeholder="Loading chart...">
+						<apexchart
+							type="bar"
+							:height="chartHeight"
+							:options="chartOptions"
+							:series="expensesSeries"
+						/>
+					</ClientOnly>
+				</div>
 			</section>
 
 			<section aria-labelledby="donations">
@@ -98,14 +101,16 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 					<h2 id="donations">Donations (NZD)</h2>
 					<IconLink href="https://ko-fi.com/wilderzone" icon="bxs:donate-heart" external>Donate</IconLink>
 				</div>
-				<ClientOnly fallback-placeholder="Loading chart...">
-					<apexchart
-						type="bar"
-						height="350"
-						:options="chartOptions"
-						:series="donationsSeries"
-					/>
-				</ClientOnly>
+				<div class="chart-area">
+					<ClientOnly fallback-placeholder="Loading chart...">
+						<apexchart
+							type="bar"
+							:height="chartHeight"
+							:options="chartOptions"
+							:series="donationsSeries"
+						/>
+					</ClientOnly>
+				</div>
 			</section>
 
 			<section aria-labelledby="ledger">
@@ -191,6 +196,10 @@ section {
 		grid-area: handle;
 		font-size: var(--font-size-s);
 	}
+}
+
+.chart-area {
+	min-height: calc(v-bind(chartHeight) * 1px);
 }
 
 .ledger {
