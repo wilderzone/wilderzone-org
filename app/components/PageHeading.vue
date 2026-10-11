@@ -11,7 +11,7 @@
 
 <style scoped>
 h1 {
-	--background: var(--color-white);
+	--background: var(--color-heading);
 	--chamfer: calc(var(--gap-l) * 1.7);
 	--overshoot: 1px;
 	position: sticky;
@@ -31,18 +31,18 @@ h1 {
 .heading {
 	grid-area: heading;
 	padding: var(--gap-s) var(--gap-l);
-	background: var(--color-white);
+	background: var(--background);
 }
 
 .left {
 	grid-area: left;
 	background: var(--background);
 	clip-path: polygon(
-		0    0,
+		0                             0,
 		calc(100% + var(--overshoot)) 0,
 		calc(100% + var(--overshoot)) calc(100% + var(--overshoot)),
-		calc(100% - var(--chamfer)) calc(100% - var(--chamfer)),
-		0    calc(100% - var(--chamfer))
+		calc(100% - var(--chamfer))   calc(100% - var(--chamfer)),
+		0                             calc(100% - var(--chamfer))
 	);
 }
 
@@ -51,9 +51,9 @@ h1 {
 	background: var(--background);
 	clip-path: polygon(
 		calc(0% - var(--overshoot)) 0,
-		100% 0,
-		100% calc(100% - var(--chamfer)),
-		var(--chamfer) calc(100% - var(--chamfer)),
+		100%                        0,
+		100%                        calc(100% - var(--chamfer)),
+		var(--chamfer)              calc(100% - var(--chamfer)),
 		calc(0% - var(--overshoot)) calc(100% + var(--overshoot))
 	);
 }
