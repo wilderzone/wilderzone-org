@@ -48,6 +48,17 @@ const chartOptions = computed(() => ({
 			formatter: (label: string) => `${months.toLong(label)}, ${selectedYear.value}`,
 		}
 	},
+	responsive: [
+		{
+			breakpoint: 700,
+			options: {
+				legend: {
+					position: 'bottom',
+					width: undefined,
+				}
+			}
+		}
+	]
 }));
 
 const donationsSeries = computed(() => donations[index.value]?.series ?? []);

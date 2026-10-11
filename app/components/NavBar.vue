@@ -8,6 +8,7 @@
 		<NuxtLink to="/" class="logo">
 			<h1>
 				<img src="~/assets/images/logo.png" alt="Wilderzone">
+				<img src="~/assets/images/logo-collapsed.png" alt="Wilderzone">
 			</h1>
 		</NuxtLink>
 		<ul>
@@ -35,7 +36,7 @@ nav {
 	z-index: var(--z-index-top);
 	display: grid;
 	grid-template:
-		'logo     angle          links' 1fr
+		'logo     angle          links' minmax(40px, auto)
 		'logo     angle          .    ' var(--chamfer)
 		/ auto    var(--chamfer) 1fr;
 	flex-shrink: 0;
@@ -54,12 +55,19 @@ nav {
 	background: var(--background);
 
 	& h1 {
+		display: flex;
+		align-items: center;
 		margin: 0;
 	}
 
 	& img {
 		opacity: 0.75;
 		transition: var(--transition-s) ease all;
+
+		&:last-of-type {
+			display: none;
+			margin-right: calc(var(--gap-s) * -1);
+		}
 	}
 
 	&:is(:focus-visible, :hover) img {
@@ -111,5 +119,14 @@ ul {
 	width: 100%;
 	height: 3px;
 	background: var(--color-orange);
+}
+
+@media only screen and (max-width: 700px) {
+	.logo img:first-of-type {
+		display: none;
+	}
+	.logo img:last-of-type {
+		display: inline;
+	}
 }
 </style>

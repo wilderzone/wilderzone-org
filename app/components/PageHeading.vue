@@ -15,7 +15,7 @@ h1 {
 	--chamfer: calc(var(--gap-l) * 1.7);
 	--overshoot: 1px;
 	position: sticky;
-    top: 36px;
+    top: 40px;
     z-index: var(--z-index-mid);
 	display: grid;
 	grid-template:
@@ -30,7 +30,7 @@ h1 {
 
 .heading {
 	grid-area: heading;
-	padding: var(--gap-m) var(--gap-l);
+	padding: var(--gap-s) var(--gap-l);
 	background: var(--color-white);
 }
 
