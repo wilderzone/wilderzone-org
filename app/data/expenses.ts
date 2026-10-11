@@ -73,6 +73,10 @@ export const expenses = [
 				name: 'Llamagrab: AUS',
 				data: [     0,      0,      0,      0,      0,      0,      0, 119.26, 159.44, 399.00,      0,      0]
 			},
+			{
+				name: 'Website Hosting',
+				data: [     0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0]
+			},
 		]
 	},
 	{
@@ -113,6 +117,10 @@ export const expenses = [
 			},
 			{
 				name: 'Llamagrab: AUS',
+				data: [     0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0]
+			},
+			{
+				name: 'Website Hosting',
 				data: [     0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0,      0]
 			},
 		]
