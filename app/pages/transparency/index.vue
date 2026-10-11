@@ -9,9 +9,6 @@ const chartOptions = computed(() => ({
 	chart: {
 		id: 'vuechart-example',
 		stacked: true,
-		animations: {
-			enabled: false,
-		},
 		selection: {
 			enabled: false,
 		},
