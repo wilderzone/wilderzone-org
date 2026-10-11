@@ -58,8 +58,8 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 	<NavBar />
 	<PanoramaBar />
 	<main>
+		<PageHeading>Transparency</PageHeading>
 		<section>
-			<h1>Transparency</h1>
 			<p>Wilderzone.org is run by the Tribes: Ascend community, for the Tribes: Ascend community. As such, all of our operations are transparent. Feel free to reach out to any of the folks listed below if you have any questions.</p>
 
 			<section aria-labelledby="admins">
@@ -162,9 +162,13 @@ const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 section {
 	width: 100%;
 	max-width: var(--content-width);
-	margin: var(--gap-l) auto var(--gap-xl);
+	margin: 0 auto var(--gap-xl);
 	padding: var(--gap-l);
 	font-family: "Play", sans-serif;
+
+	& > p:first-of-type {
+		margin-block-start: 0;
+	}
 
 	& > section {
 		margin: var(--gap-l) 0;
@@ -177,10 +181,6 @@ section {
 			justify-content: space-between;
 			align-items: center;
 			gap: var(--gap-m);
-		}
-
-		& > p:first-of-type {
-			margin-block-start: 0;
 		}
 	}
 }
