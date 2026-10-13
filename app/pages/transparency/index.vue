@@ -4,8 +4,9 @@ import { donations, expenses, ledger, months } from '~/data/expenses';
 const years = ref(expenses.map(entry => String(entry.year)));
 const selectedYear = ref(years.value[0]);
 const index = computed(() => expenses.findIndex(group => String(group.year) === selectedYear.value));
+const donationsSeries = computed(() => donations[index.value]?.series ?? []);
+const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 const chartHeight = ref(350);
-
 const chartOptions = computed(() => ({
 	chart: {
 		id: 'vuechart-example',
@@ -60,9 +61,6 @@ const chartOptions = computed(() => ({
 		}
 	]
 }));
-
-const donationsSeries = computed(() => donations[index.value]?.series ?? []);
-const expensesSeries = computed(() => expenses[index.value]?.series ?? []);
 </script>
 
 <template>
