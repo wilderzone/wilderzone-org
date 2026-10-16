@@ -2,6 +2,7 @@
 	<NavBar />
 	<PanoramaBar />
 	<main>
+		<PageHeading>Home</PageHeading>
 		<div class="intro">
 			<p>Welcome to the Wilderzone.org restoration project.</p>
 			<p>We are in the process of restoring the <a href="https://web.archive.org/web/20160622130520/http://www.wilderzone.org/" target="_blank" rel="noreferrer">original Wilderzone.org website</a> that you may be familiar with, as well as bringing it up-to-date with the latest TA community content.</p>
