@@ -183,6 +183,11 @@ const chartOptions = computed(() => ({
 				</ul>
 				<p>We welcome any feedback or corrections related to this policy or our operations in general. :)</p>
 			</section>
+
+			<PageEndMarker>
+				<p class="page-end-content">Last updated: <a href="https://github.com/wilderzone/wilderzone-org/commits/main/app/pages/transparency" target="_blank" rel="noreferrer"><time>17th of October 2026</time></a></p>
+				<p class="page-end-content">That's all. Now go grab some flags!</p>
+			</PageEndMarker>
 		</section>
 	</main>
 	<Footer />
@@ -192,8 +197,8 @@ const chartOptions = computed(() => ({
 section {
 	width: 100%;
 	max-width: var(--content-width);
-	margin: 0 auto var(--gap-xl);
-	padding: var(--gap-l);
+	margin: 0 auto;
+	padding: var(--gap-l) var(--gap-l) 0;
 	font-family: "Play", sans-serif;
 
 	& > p:first-of-type {
@@ -303,5 +308,19 @@ select[name="year"] {
 
 hr {
 	width: 10em;
+}
+
+.page-end-content {
+	color: var(--color-text-dim);
+	font-size: var(--font-size-s);
+	text-align: center;
+
+	&:first-child {
+		margin-block-start: 0;
+	}
+
+	&:last-child {
+		margin-block-end: 0;
+	}
 }
 </style>
