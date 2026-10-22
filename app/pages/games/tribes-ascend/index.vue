@@ -149,6 +149,7 @@ useSeoMeta({
 		'.            .               .' var(--gap-m)
 		/ 1fr         min(53ch, 85vw) var(--grid-last-column);
 	gap: var(--gap-m) 0;
+	flex: 1;
 	min-height: 100%;
 	margin: 0;
 	color: var(--color-text);
