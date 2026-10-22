@@ -150,6 +150,7 @@ const chartOptions = computed(() => ({
 			<section aria-labelledby="development">
 				<div class="heading-row">
 					<h2 id="development">Development</h2>
+					<IconLink href="https://github.com/wilderzone" icon="majesticons:lightbulb-shine" external>Contribute</IconLink>
 				</div>
 				<p>At Wilderzone.org, we create open-source software. All software projects have their source code published<sup class="dagger">†</sup> to <a href="https://github.com/wilderzone" target="_blank" rel="noreferrer">our GitHub organization</a> under the MIT license. This makes it easy to find our projects, and means our software will always be free to use.</p>
 				<p>We take this approach because we believe:</p>
