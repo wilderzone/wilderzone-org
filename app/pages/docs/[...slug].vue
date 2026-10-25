@@ -51,4 +51,21 @@ main {
 	--vp-c-brand-3: var(--color-orange);
 	--vp-c-brand-soft: var(--color-orange-faint);
 }
+
+.vp-doc {
+	& h1 {
+		display: flex;
+		align-items: center;
+		gap: 0.7ch;
+	}
+
+	& img {
+		max-width: 100%;
+		border-radius: var(--border-radius-m);
+	}
+
+	& .custom-block {
+		border-radius: var(--border-radius-m);
+	}
+}
 </style>
