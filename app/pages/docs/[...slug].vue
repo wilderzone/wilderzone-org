@@ -27,18 +27,26 @@ useSeoMeta({
 	<PanoramaBar />
 	<WikiComponentsBreadcrumbs collection="docs" />
 	<main>
-		<ContentRenderer v-if="page" :value="page" class="vp-doc" />
+		<WikiComponentsSideNavigation />
+		<ContentRenderer v-if="page" :value="page" class="content vp-doc" />
+		<WikiComponentsTailNavigation />
 	</main>
 	<Footer />
 </template>
 
 <style scoped>
 main {
-	width: 100%;
-	max-width: var(--content-width);
-	margin: auto;
+	display: grid;
+	grid-template:
+		'.       nav    content .   .' 1fr
+		'.       .      tail    .   .' auto
+		/ auto   200px  min(100%, var(--content-width)) 200px auto;
 	padding-top: var(--gap-m);
-	padding-inline: var(--gap-xl);
+
+	& > .content {
+		grid-area: content;
+		padding-inline: var(--gap-xl);
+	}
 }
 </style>
 
