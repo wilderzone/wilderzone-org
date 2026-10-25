@@ -21,7 +21,7 @@ useSeoMeta({
 <template>
 	<NavBar />
 	<PanoramaBar />
-	<WikiComponentsBreadcrumbs />
+	<WikiComponentsBreadcrumbs collection="wiki" />
 	<main>
 		<ContentRenderer v-if="page" :value="page" />
 	</main>

@@ -25,6 +25,7 @@ useSeoMeta({
 <template>
 	<NavBar />
 	<PanoramaBar />
+	<WikiComponentsBreadcrumbs collection="docs" />
 	<main>
 		<ContentRenderer v-if="page" :value="page" class="vp-doc" />
 	</main>
