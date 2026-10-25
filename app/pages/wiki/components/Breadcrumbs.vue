@@ -1,18 +1,19 @@
 <script setup lang="ts">
+import type { PageCollections } from '@nuxt/content';
+
 interface Breadcrumb {
 	name: string;
 	path: string;
 }
 
 const props = defineProps<{
-	collection: string;
+	collection: keyof PageCollections;
 }>();
 
 const crumbs = ref<Breadcrumb[]>([]);
 const route = useRoute();
 
 async function load(): Promise<void> {
-	// @ts-expect-error `queryCollection` uses generated types that are inaccessible from this component.
 	const collection = await queryCollection(props.collection).all();
 	const segments = route.path.split('/').filter(Boolean);
 	const trail: string[] = [];

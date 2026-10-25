@@ -8,6 +8,7 @@ useSeoMeta({
 });
 
 const route = useRoute();
+const section = computed(() => '/' + route.path.split('/').filter(Boolean).slice(0, 2).join('/'));
 const { data: page } = await useAsyncData(route.path, () => {
 	return queryCollection('docs').path(route.path).first()
 });
@@ -27,9 +28,9 @@ useSeoMeta({
 	<PanoramaBar />
 	<WikiComponentsBreadcrumbs collection="docs" />
 	<main>
-		<WikiComponentsSideNavigation />
+		<WikiComponentsSideNavigation collection="docs" :root="section" />
 		<ContentRenderer v-if="page" :value="page" class="content vp-doc" />
-		<WikiComponentsTailNavigation />
+		<WikiComponentsTailNavigation collection="docs" :root="section" />
 	</main>
 	<Footer />
 </template>

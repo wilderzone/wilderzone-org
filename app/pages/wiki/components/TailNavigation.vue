@@ -1,16 +1,24 @@
 <script setup lang="ts">
+import type { PageCollections } from '@nuxt/content';
+
+const props = defineProps<{
+	collection: keyof PageCollections;
+	root: string;
+}>();
+
+const { prev, next } = useSectionNavigation(props.collection, () => props.root);
 </script>
 
 <template>
 	<nav class="tail-navigation">
-		<a href="">
+		<NuxtLink v-if="prev" :to="prev.path" class="previous">
 			<p>Previous page</p>
-			<p>Overview</p>
-		</a>
-		<a href="">
+			<p>{{ prev.path === root ? 'Overview' : prev.title }}</p>
+		</NuxtLink>
+		<NuxtLink v-if="next" :to="next.path" class="next">
 			<p>Next page</p>
-			<p>Subcommands</p>
-		</a>
+			<p>{{ next.path === root ? 'Overview' : next.title }}</p>
+		</NuxtLink>
 	</nav>
 </template>
 
@@ -35,12 +43,13 @@
 		border-radius: var(--border-radius-m);
 		transition: var(--transition-s) ease border-color;
 
-		&:first-of-type {
+		&.previous {
 			align-items: flex-start;
 		}
 
-		&:last-of-type {
+		&.next {
 			align-items: flex-end;
+			margin-left: auto;
 		}
 
 		&:is(:focus-visible, :hover) {
