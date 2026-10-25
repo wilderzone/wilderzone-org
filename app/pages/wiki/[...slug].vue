@@ -5,7 +5,7 @@ useSeoMeta({
 
 const route = useRoute();
 const { data: page } = await useAsyncData(route.path, () => {
-	return queryCollection('content').path(route.path).first()
+	return queryCollection('wiki').path(route.path).first()
 });
 
 if (!page.value) {

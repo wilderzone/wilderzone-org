@@ -19,7 +19,19 @@ export default defineNuxtConfig({
 		}
 	},
 
-	css: ["~/assets/css/root.css"],
+	hooks: {
+		// Docs pulled from other repos link relative to their own docs root, so mount them under their site prefix.
+		// File ids are "<collection>/<source prefix>/<file>", e.g. "docs/docs/ta-installer/cli/options.md".
+		'content:file:beforeParse'({ file }) {
+			if (file.id.startsWith('docs/docs/ta-installer/')) {
+				file.body = file.body
+					.replaceAll('src="/assets/', 'src="https://raw.githubusercontent.com/wilderzone/ta-installer/documentation/docs/assets/')
+					.replaceAll('](/', '](/docs/ta-installer/');
+			}
+		}
+	},
+
+	css:["~/assets/css/root.css"],
 	modules: ["@nuxt/icon", "@nuxt/content"],
 	components: [
 		'~/components',

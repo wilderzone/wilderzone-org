@@ -8,7 +8,7 @@ const crumbs = ref<Breadcrumb[]>([]);
 const route = useRoute();
 
 async function load(): Promise<void> {
-	const collection = await queryCollection('content').all();
+	const collection = await queryCollection('wiki').all();
 	const segments = route.path.split('/').filter(Boolean);
 	const trail: string[] = [];
 	for (const segment of segments) {
