@@ -24,7 +24,9 @@ h1 {
 		/ 1fr     minmax(auto, var(--content-width)) 1fr;
 	flex-shrink: 0;
 	margin: 0;
-	font-family: "Play", sans-serif;
+	font-family: "Ovo", sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
 	filter: drop-shadow(0 -3px 6px #0001);
 }
 

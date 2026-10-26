@@ -49,7 +49,7 @@ html {
 body {
 	height: 100%;
 	margin: 0;
-	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Play", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	background: var(--background-noise) var(--color-background);
 }
@@ -65,4 +65,8 @@ main {
 	height: 100%;
 	margin-bottom: calc(var(--gap-l) * -1);
 	padding-bottom: var(--gap-l);
+}
+
+b {
+	font-weight: bold;
 }
