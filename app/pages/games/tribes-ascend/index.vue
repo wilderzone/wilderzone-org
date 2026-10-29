@@ -62,8 +62,8 @@ useSeoMeta({
 			</p>
 
 			<a
-				href="https://cdn.wilderzone.live/ta/game/installer/ta-installer-windows.exe"
-				download="tribes-ascend-installer"
+				href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-windows.exe"
+				download="tribes-ascend-installer-windows"
 				target="_blank"
 				class="download"
 			>Download</a>
@@ -72,8 +72,8 @@ useSeoMeta({
 				<li aria-labelledby="windows" title="Download for Windows">
 					<a
 						id="windows"
-						href="https://cdn.wilderzone.live/ta/game/installer/ta-installer-windows.exe"
-						download="tribes-ascend-installer"
+						href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-windows.exe"
+						download="tribes-ascend-installer-windows"
 						target="_blank"
 						class="alternative"
 					>
@@ -84,8 +84,8 @@ useSeoMeta({
 				<li aria-labelledby="linux" title="Download for Linux">
 					<a
 						id="linux"
-						href="https://cdn.wilderzone.live/ta/game/installer/ta-installer-linux.zip"
-						download="tribes-ascend-installer"
+						href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-linux"
+						download="tribes-ascend-installer-linux"
 						target="_blank"
 						class="alternative"
 					>
