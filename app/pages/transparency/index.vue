@@ -186,7 +186,7 @@ const chartOptions = computed(() => ({
 			</section>
 
 			<PageEndMarker>
-				<p class="page-end-content">Last updated: <a href="https://github.com/wilderzone/wilderzone-org/commits/main/app/pages/transparency" target="_blank" rel="noreferrer"><time>17th of October 2026</time></a></p>
+				<p class="page-end-content">Last updated: <a href="https://github.com/wilderzone/wilderzone-org/commits/main/app/pages/transparency" target="_blank" rel="noreferrer"><time>30th of October 2026</time></a></p>
 				<p class="page-end-content">That's all. Now go grab some flags!</p>
 			</PageEndMarker>
 		</section>
