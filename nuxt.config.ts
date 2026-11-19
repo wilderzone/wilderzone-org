@@ -32,7 +32,7 @@ export default defineNuxtConfig({
 	},
 
 	css:["~/assets/css/root.css"],
-	modules: ["@nuxt/icon", "@nuxt/content"],
+	modules: ["@nuxt/icon", "@nuxt/content", '@nuxtjs/device'],
 	components: [
 		'~/components',
 		{ path: '~/pages', pattern: '**/components/**', pathPrefix: true }

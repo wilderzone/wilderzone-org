@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@nuxt/content": "^3.16.0",
 		"@nuxt/icon": "^2.5.1",
+		"@nuxtjs/device": "^4.0.0",
 		"@wilderzone/vgs": "^1.1.1",
 		"apexcharts": "^8.0.0",
 		"better-sqlite3": "^13.0.3",

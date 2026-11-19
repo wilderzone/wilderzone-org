@@ -17,7 +17,7 @@ useHead({
 	],
 	link: [
 		{ rel: 'shortcut icon', href: favicon, type: 'image/webp' },
-		{ rel: 'canonical', href: 'https://wilderzone.org/games/tribes-ascend/' },
+		{ rel: 'canonical', href: 'https://wilderzone.org/games/tribes-ascend' },
 	]
 });
 
@@ -31,17 +31,33 @@ useSeoMeta({
 	ogDescription: seo.description,
 	ogType: 'website',
 	ogImage: 'https://wilderzone.org/games/tribes-ascend/site-cover.webp',
-	ogUrl: 'https://wilderzone.org/games/tribes-ascend/',
+	ogUrl: 'https://wilderzone.org/games/tribes-ascend',
 	twitterCard: 'summary_large_image',
 	twitterImageAlt: 'site cover image',
 	themeColor: '#41637C',
 });
+
+const { isLinux } = useDevice();
+const cdn = 'https://cdn.wilderzone.org/ta/game/installer';
+const download = {
+	linux: `${cdn}/ta-installer-linux.run`,
+	windows: `${cdn}/ta-installer-windows.exe`
+};
+const version = ref('');
+
+async function load(): Promise<void> {
+	const url = `${cdn}/version`;
+	const response = await fetch(url);
+	version.value = await response.text();
+}
+
+onMounted(load);
 </script>
 
 <template>
 	<div class="page">
 		<nav>
-			<NuxtLink to="/games" class="back">
+			<NuxtLink to="/games">
 				<img src="./back.svg" alt="" class="icon">
 				Back to all games
 			</NuxtLink>
@@ -62,7 +78,7 @@ useSeoMeta({
 			</p>
 
 			<a
-				href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-windows.exe"
+				:href="isLinux ? download.linux : download.windows"
 				download="tribes-ascend-installer-windows"
 				target="_blank"
 				class="download"
@@ -72,24 +88,24 @@ useSeoMeta({
 				<li aria-labelledby="windows" title="Download for Windows">
 					<a
 						id="windows"
-						href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-windows.exe"
+						:href="download.windows"
 						download="tribes-ascend-installer-windows"
 						target="_blank"
 						class="alternative"
 					>
-						<img src="./windows.svg" alt="" class="icon">
+						<img src="./windows.svg" draggable="false" alt="" class="icon">
 						Windows
 					</a>
 				</li>
 				<li aria-labelledby="linux" title="Download for Linux">
 					<a
 						id="linux"
-						href="https://cdn.wilderzone.org/ta/game/installer/ta-installer-linux"
+						:href="download.linux"
 						download="tribes-ascend-installer-linux"
 						target="_blank"
 						class="alternative"
 					>
-						<img src="./linux.svg" alt="" class="icon">
+						<img src="./linux.svg" draggable="false" alt="" class="icon">
 						Linux
 					</a>
 				</li>
@@ -100,11 +116,15 @@ useSeoMeta({
 						target="_blank"
 						class="alternative"
 					>
-						<img src="./server.svg" alt="" class="icon">
+						<img src="./server.svg" draggable="false" alt="" class="icon">
 						Server
 					</a>
 				</li>
 			</ul>
+
+			<p class="version">
+				<span v-if="version" :title="`Installer version: ${version}`">{{ version }}</span>
+			</p>
 		</main>
 
 		<footer>
@@ -142,7 +162,9 @@ useSeoMeta({
 		'.            subtext         .' auto
 		'.            .               .' var(--gap-m)
 		'.            download        .' auto
-		'.            variants        .' auto
+		'.            alternatives    .' auto
+		'.            .               .' var(--gap-m)
+		'.            version         .' auto
 		'.            .               .' 1fr
 		'.            .               .' var(--gap-l)
 		'.            footer          .' auto
@@ -187,7 +209,7 @@ nav {
 }
 
 main {
-	grid-area: 1 / 2 / 14 / 3;
+	grid-area: 1 / 2 / 16 / 3;
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-template-rows: subgrid;
@@ -273,7 +295,7 @@ main {
 }
 
 .alternatives {
-	grid-area: variants;
+	grid-area: alternatives;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -309,6 +331,36 @@ main {
 		& .icon {
 			height: 1em;
 		}
+	}
+}
+
+.version {
+	grid-area: version;
+	display: flex;
+	align-items: center;
+	min-height: 1lh;
+	margin: 0;
+	font-size: 0.8rem;
+	opacity: 0.25;
+
+	&::before,
+	&::after {
+		content: '';
+		width: 100%;
+		height: 1px;
+		opacity: 0.5;
+	}
+
+	&::before {
+		background: linear-gradient(to right, transparent, currentColor);
+	}
+
+	&::after {
+		background: linear-gradient(to left, transparent, currentColor);
+	}
+
+	& span {
+		margin-inline: var(--gap-m);
 	}
 }
 
