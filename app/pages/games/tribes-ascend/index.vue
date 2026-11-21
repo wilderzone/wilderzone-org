@@ -4,6 +4,7 @@ import favicon from './favicon.webp';
 const seo = {
 	title: 'Download Tribes: Ascend',
 	description: `The world's fastest shooter! Download Tribes: Ascend for Windows and Linux.`,
+	canonical: 'https://wilderzone.org/games/tribes-ascend',
 	keywords: [
 		'Wilderzone', 'Tribes Ascend', 'TA', 'Tribes', 'Ascend', 'FPS', 'FPS-Z',
 		'fast-paced', 'video game', 'game', 'download', 'install', 'servers',
@@ -17,7 +18,7 @@ useHead({
 	],
 	link: [
 		{ rel: 'shortcut icon', href: favicon, type: 'image/webp' },
-		{ rel: 'canonical', href: 'https://wilderzone.org/games/tribes-ascend' },
+		{ rel: 'canonical', href: seo.canonical },
 	]
 });
 
@@ -31,7 +32,7 @@ useSeoMeta({
 	ogDescription: seo.description,
 	ogType: 'website',
 	ogImage: 'https://wilderzone.org/games/tribes-ascend/site-cover.webp',
-	ogUrl: 'https://wilderzone.org/games/tribes-ascend',
+	ogUrl: seo.canonical,
 	twitterCard: 'summary_large_image',
 	twitterImageAlt: 'site cover image',
 	themeColor: '#41637C',
