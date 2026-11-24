@@ -68,13 +68,83 @@ main {
 		gap: 0.7ch;
 	}
 
+	& :is(h2, h3) > a {
+		display: inline-block;
+		width: 100%;
+		color: inherit;
+		text-decoration: none;
+
+		&::before {
+			content: '#';
+			margin-inline-start: -1.5ch;
+			margin-inline-end: 0.5ch;
+			color: var(--vp-c-brand-1);
+			opacity: 0;
+			transition: color 0.25s, opacity 0.25s;
+		}
+
+		&:is(:focus-visible, :hover)::before {
+			opacity: 1;
+		}
+	}
+
+	& p {
+		line-height: normal;
+
+		&:has(+ :is(ol, ul)) {
+			margin-block-end: 8px;
+		}
+
+		& + :is(ol, ul) {
+			margin-block-start: 8px;
+		}
+
+		&:has(> img:only-child) {
+			margin-block-end: 42px;
+		}
+
+		& + :is(ol, ul) {
+			margin-block-start: 8px;
+		}
+	}
+
 	& img {
 		max-width: 100%;
 		border-radius: var(--border-radius-m);
+
+		&.gui-image {
+			max-width: calc(100% - 30px);
+			box-shadow:
+				0 3px 10px -3px #0005,
+				0 10px 22px -4px #0007;
+		}
 	}
 
 	& .custom-block {
 		border-radius: var(--border-radius-m);
+	}
+
+	& iframe.ta-download-frame {
+		width: 100%;
+		height: 600px;
+		border: unset;
+		border-radius: var(--border-radius-m);
+	}
+
+	& details {
+		--gap: var(--gap-l);
+		margin-block-end: var(--gap-m);
+		padding: var(--gap);
+		background: var(--vp-badge-info-bg);
+		border-radius: var(--border-radius-m);
+
+		& summary {
+			margin: calc(var(--gap) * -1);
+			padding: var(--gap);
+			border-radius: inherit;
+			cursor: pointer;
+			user-select: none;
+		}
 	}
 }
 </style>
