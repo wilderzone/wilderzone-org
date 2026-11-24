@@ -22,7 +22,7 @@ export default defineContentConfig({
 				{
 					repository: {
 						url: 'https://github.com/wilderzone/ta-installer',
-						branch: 'documentation'
+						branch: 'main'
 					},
 					include: 'docs/**/*.md',
 					prefix: '/docs/ta-installer',

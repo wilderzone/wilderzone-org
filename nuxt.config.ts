@@ -25,7 +25,7 @@ export default defineNuxtConfig({
 		'content:file:beforeParse'({ file }) {
 			if (file.id.startsWith('docs/docs/ta-installer/')) {
 				file.body = file.body
-					.replaceAll('src="/assets/', 'src="https://raw.githubusercontent.com/wilderzone/ta-installer/documentation/docs/assets/')
+					.replaceAll('src="/assets/', 'src="https://raw.githubusercontent.com/wilderzone/ta-installer/main/docs/assets/')
 					.replaceAll('](/', '](/docs/ta-installer/');
 			}
 		}
